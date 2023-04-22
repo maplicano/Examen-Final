@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MV2AudioRecorder.Views.ListarAudioPage" Title="Audios Guardados">
+    <ContentPage.Content >
+        <StackLayout BackgroundColor="#eafdf4">
+            <Frame BackgroundColor="#2196F3" Padding="10,0,10,10" CornerRadius="0">
+                <Label Text="Seleccione un elemento y luego deslizar hacia la izquierda para reproducir o eliminar audio" HorizontalTextAlignment="Start" TextColor="Black" FontSize="18"/>
+            </Frame>
+            <ListView x:Name="listaAudios" ItemTapped="listaAudios_ItemTapped" >
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+
+                        <ViewCell>
+
+                            <SwipeView>
+                                <SwipeView.RightItems>
+                                    <SwipeItems >
+                                        <SwipeItem x:Name="btndelete" IconImageSource="botondelete.png" BackgroundColor="Black" 
+                                                   Invoked="btndelete_Invoked"/>
+                                        <SwipeItem x:Name="btnplay" IconImageSource="botonplay.png" BackgroundColor="Black"
+                                                   Invoked="btnplay_Invoked"/>
+                                    </SwipeItems>
+                                </SwipeView.RightItems>
+                                
+                                <StackLayout>
+                                    <Grid>
+                                        <Label Grid.Column="0"
+                                               Text="{Binding Id}"></Label>
+                                        <Label Grid.Column="1"
+                                               Text="{Binding Date}"> </Label>
+                                        <Label Grid.Column="2"
+                                               Text="{Binding Descripcion}"></Label>
+                                    </Grid>
+                                </StackLayout>
+                                
+                            </SwipeView>
+                            
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
